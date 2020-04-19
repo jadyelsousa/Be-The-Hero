@@ -6,10 +6,10 @@ import './styles.css';
 import api from '../../services/api';
 
 export default function Profile () {
-    const [incidents, setincidents] = useState([]);
-    const history = useHistory('');
     const ongName = localStorage.getItem('ongName');
     const ongId = localStorage.getItem('ongId');
+    const [incidents, setincidents] = useState([]);
+    const history = useHistory('');
 
     useEffect(() => {
         api.get('profile',{
@@ -44,9 +44,10 @@ export default function Profile () {
     return (  
     <div className="profile-container">
         <header>
+        
             <img src={logoImg} alt="Be The Hero"/>
         
-    <span>Bem vinda,{ ongName }</span>
+    <span>Bem vinda,{ongName}</span>
         <Link className="button" to="/incidents/new"  >
             Cadastrar novo caso
         </Link>
